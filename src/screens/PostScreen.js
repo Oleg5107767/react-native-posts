@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View, Button, Image, ScrollView, Alert } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
 import { useNavigation } from '@react-navigation/native'
 import { DATA } from '../data';
+import { AppHeaderIcon } from '../components/AppHeaderIcon'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import { THEME } from '../theme'
 
 const PostScreen = ({ route }) => {
@@ -10,6 +11,10 @@ const PostScreen = ({ route }) => {
     const navigation = useNavigation();
     const { postId } = route.params
     const post = DATA.find(el => el.id === postId)
+
+    //useEffect(() => {
+    //    navigation.setParams({ booked: post.booked })
+    //}, [])
 
     const removeHandler = () => {
         Alert.alert(
@@ -36,7 +41,24 @@ const PostScreen = ({ route }) => {
         </ScrollView>
     )
 }
-export default PostScreen;
+PostScreen.navigationOption = ({ route }) => {
+    const { date, booked } = route.params
+    const iconName = booked ? 'ios-star' : 'ios-star-outline'
+
+    return {
+        headerTitle: 'Пост от ' + new Date(date).toLocaleDateString(),
+        headerRight: () => (
+            <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+                <Item
+                    title='Take photo'
+                    iconName={iconName}
+                    onPress={() => console.log('press photo')}
+                />
+            </HeaderButtons>
+        ),
+    }
+}
+
 
 const styles = StyleSheet.create({
     image: {
@@ -47,7 +69,7 @@ const styles = StyleSheet.create({
         padding: 10
     },
     title: {
-        fontFamily: 'open-regular'
+        // fontFamily: 'open-regular'
     }
 })
-
+export default PostScreen;

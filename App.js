@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native'
 //const Stack = createNativeStackNavigator(); /////navigation for APP
 
 export default function App() {
- // const [isReady, setIsReady] = useState(false)
+  //const [isReady, setIsReady] = useState(false)
   //if (!isReady) {
   //  return (
   //    <AppLoading
@@ -19,7 +19,7 @@ export default function App() {
   //    />
   //  )
   //}
-  //const fonts = !isReady ? <AppLoading startAsync={bootstrap}onFinish={() => setIsReady(true)}onError={err => console.log(err)} /> : null
+  //const fonts = !isReady ? <AppLoading startAsync={bootstrap} onFinish={() => setIsReady(true)} onError={err => console.log(err)} /> : null
   return (
     <NavigationContainer>
       <AppNavigation />
