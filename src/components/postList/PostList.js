@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button, FlatList } from 'react-native'
-import { Post } from './Post'
+import { Post } from '../post/Post'
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeaderButton } from 'react-navigation-header-buttons'
 import { Platform } from 'react-native'
-import { THEME } from '../theme'
+import { THEME } from '../../theme'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 export const AppHeaderIcon = (props) => {
@@ -14,7 +14,6 @@ export const AppHeaderIcon = (props) => {
         />
     )
 }
-
 
 
 export default AppHeaderIcon;

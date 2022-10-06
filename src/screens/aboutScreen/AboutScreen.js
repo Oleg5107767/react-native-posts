@@ -1,11 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { Text, View } from 'react-native'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { AppHeaderIcon } from '../components/AppHeaderIcon'
+import { AppHeaderIcon } from '../../components/appHeaderIcon/AppHeaderIcon'
+import { aboutScreenStyles } from './aboutScreenStyles'
+
+
 export const AboutScreen = ({ }) => {
     return (
-        <View style={styles.center}>
+        <View style={aboutScreenStyles.center}>
             <Text>Отличное приложение для заметок</Text>
             <Text>Версия приложения
                 <Text style={styles.version}>
@@ -30,13 +32,4 @@ AboutScreen.navigationOption = ({ navigation }) => ({
     )
 })
 
-const styles = StyleSheet.create({
-    center: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    version: {
-        //  fontFamily: 'open-bold'
-    }
-})
+

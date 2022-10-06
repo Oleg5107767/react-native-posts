@@ -1,11 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import {  Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { AppHeaderIcon } from '../components/AppHeaderIcon'
+import { AppHeaderIcon } from '../../components/appHeaderIcon/AppHeaderIcon'
+import { createScreenStyles } from './createScreenStyles'
+
 export const CreateScreen = ({ }) => {
     return (
-        <View style={styles.center}>
+        <View style={createScreenStyles.center}>
             <Text>Create Screen</Text>
         </View>
     )
@@ -25,10 +27,3 @@ CreateScreen.navigationOption = ({ navigation }) => ({
     )
 })
 
-const styles = StyleSheet.create({
-    center: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})

@@ -1,37 +1,27 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
-import { DATA } from '../data'
-import { AppHeaderIcon } from '../components/AppHeaderIcon'
+import { AppHeaderIcon } from '../../components/appHeaderIcon/AppHeaderIcon'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { PostList } from '../components/PostList'
+import { PostList } from '../../components/postList/PostList'
 
 
-const MainScreen = (props) => {
+const BookedScreen = ({ }) => {
     const navigation = useNavigation();
-
+    const bookedPosts = useSelector(state => state.post.bookedPosts)
     const openPostHandler = (post) => {
         navigation.navigate('PostScreen', { postId: post.id, date: post.date, booked: post.booked })
     }
 
     return (
         <PostList
-            data={DATA}
+            data={bookedPosts}
             onOpen={openPostHandler}
         />
     )
 }
-
-MainScreen.navigationOption = ({ navigation }) => ({
-    headerTitle: 'Мой Блог',
-    headerRight: () => (
-        <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
-            <Item
-                title='Take photo'
-                iconName='ios-camera'
-                onPress={() => navigation.navigate('Create')}
-            />
-        </HeaderButtons>
-    ),
+BookedScreen.navigationOption = ({ navigation }) => ({
+    headerTitle: 'Избранное',
     headerLeft: () => (
         <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
             <Item
@@ -43,4 +33,5 @@ MainScreen.navigationOption = ({ navigation }) => ({
     )
 })
 
-export default MainScreen
+
+export default BookedScreen

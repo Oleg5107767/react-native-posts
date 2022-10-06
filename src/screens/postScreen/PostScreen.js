@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, Text, View, Button, Image, ScrollView, Alert } from 'react-native'
+import { Text, View, Button, Image, ScrollView, Alert } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { DATA } from '../data';
-import { AppHeaderIcon } from '../components/AppHeaderIcon'
+import { DATA } from '../../data'
+import { AppHeaderIcon } from '../../components/appHeaderIcon/AppHeaderIcon'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { THEME } from '../theme'
+import { THEME } from '../../theme'
+import { postScreenStyles } from './postScreenStyles'
+
+
 
 const PostScreen = ({ route }) => {
 
@@ -31,9 +34,9 @@ const PostScreen = ({ route }) => {
     }
     return (
         <ScrollView >
-            <Image source={{ uri: post.img }} style={styles.image} />
-            <View style={styles.textWrap}>
-                <Text style={styles.title}>
+            <Image source={{ uri: post.img }} style={postScreenStyles.image} />
+            <View style={postScreenStyles.textWrap}>
+                <Text style={postScreenStyles.title}>
                     {post.text}
                 </Text>
             </View>
@@ -59,17 +62,4 @@ PostScreen.navigationOption = ({ route }) => {
     }
 }
 
-
-const styles = StyleSheet.create({
-    image: {
-        width: '100%',
-        height: 200
-    },
-    textWrap: {
-        padding: 10
-    },
-    title: {
-        // fontFamily: 'open-regular'
-    }
-})
-export default PostScreen;
+export default PostScreen
